@@ -31,10 +31,17 @@ const mapOptions = {
   streetViewControl: false,
   fullscreenControl: false,
   zoomControl: false,
-  gestureHandling: 'cooperative',
+  gestureHandling: 'greedy',
   // Дополнительные настройки для скрытия элементов управления
   disableDefaultUI: true,
-  clickableIcons: false
+  clickableIcons: false,
+  // Мобильные настройки для лучшего UX
+  zoom: 12,
+  minZoom: 10,
+  maxZoom: 18,
+  // Настройки для плавного движения
+  scrollwheel: false,
+  draggable: true
 };
 
 const GoogleMapsMapRefactored = () => {
