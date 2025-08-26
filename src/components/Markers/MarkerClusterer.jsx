@@ -20,7 +20,7 @@ export const createClusterRenderer = (base64Images) => {
             background: url('${base64Image}') lightgray 50% / cover no-repeat;
             border-radius: 10px;
             border: 3px solid #FFF;
-            box-shadow: 0 0 32px 0 rgba(58, 47, 15, 0.20);
+            
             transform: rotate(${rotation}deg) translateY(${offset}px);
             z-index: ${10 - index};
             transition: all 0.3s ease;
