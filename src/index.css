@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Google Maps Container */
+.google-map-container {
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+}
+
+/* Custom marker animations */
+@keyframes scale-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-scale-in {
+  animation: scale-in 0.3s ease-out;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.6s ease-out;
+}
+
+/* Marker hover effects */
+.google-map-container img[src*="data:image/svg+xml"] {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.google-map-container img[src*="data:image/svg+xml"]:hover {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
+/* Custom marker styles for Google Maps */
+.google-map-container img[src*="data:image/svg+xml"] {
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.google-map-container img[src*="data:image/svg+xml"]:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Info window styles */
+.gm-style .gm-style-iw-c {
+  padding: 0 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.gm-style .gm-style-iw-d {
+  overflow: hidden !important;
+  border-radius: 12px !important;
+}
+
+/* Скрываем элементы управления Google Maps */
+.gmnoprint {
+  display: none !important;
+}
+
+.gm-style-cc {
+  display: none !important;
+}
+
+.gmnoscreen {
+  display: none !important;
+}
+
+/* Скрываем кнопки и ссылки внизу карты */
+.gm-style-cc button,
+.gm-style-cc a,
+.gm-style-cc span {
+  display: none !important;
+}
+
+/* Скрываем логотип Google Maps */
+.gm-style a[href*="maps.google.com"],
+.gm-style a[href*="google.com/maps"],
+.gm-style a[target="_blank"] {
+  display: none !important;
+}
+
+/* Скрываем все ссылки Google Maps */
+.gm-style a {
+  display: none !important;
+}
+
+/* Скрываем все элементы с Google branding */
+.gm-style img[alt="Google"],
+.gm-style a[title*="Google Maps"],
+.gm-style a[aria-label*="Google Maps"] {
+  display: none !important;
+}
+
+/* Скрываем все элементы управления Google */
+.gm-style > div:last-child {
+  display: none !important;
+}
+
+.gm-style .gm-style-iw-t::after {
+  background: linear-gradient(45deg, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 51%, rgba(255,255,255,0) 100%) !important;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .google-map-container {
+    height: 100vh;
+  }
+  
+  .gm-style .gm-style-iw-c {
+    max-width: 280px !important;
+  }
+}
